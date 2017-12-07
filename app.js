@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
+var port = process.env.PORT || 3000;
 
 var LocalStrategy = require('passport-local').Strategy;
 
@@ -17,7 +18,7 @@ var app = express();
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/node-auth')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/node-auth')
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
 
