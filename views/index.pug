@@ -1,4 +1,13 @@
 extends layout
 
 block content
-  h1= title
+  div#main-content-wrapper
+    if (!user)
+      pre no user
+    if (user)
+      div#fn-btn-row.container-fuid
+        button#new-slice.outlined-grn-btn
+          a(href="/addSlice") + Add a Slice
+      section#watermelon-container.container-fluid
+        pre= user
+        block content
