@@ -11,21 +11,16 @@ html
     nav.navbar.navbar-default
       div.container-fluid
         div.navbar-header
-          ul#accountNav.nav.navbar-nav.navbar-right
+          h1#title.navbar-brand Watermelon Matrix
+          ul#accountNav.nav.navbar-nav
             if (!user)
-              li
-                a(href='/login') Login
-              li
-                a(href='/register') Register
+              a(href='/login').nav-item.nav-link.btn Login
+              a(href='/register').nav-item.nav-link.btn Register
             if (user)
-              li
-                a Hi #{user.username}
-              li
-                a(href='/logout') Logout
-            h1#title.navbar-brand Watermelon Matrix
-    div.container
-      div.content
-        block content
+              a(href="/").nav-item.nav-link.btn Hi #{user.username}
+              a(href='/logout').nav-item.nav-link.btn Logout
+              a#new-slice.nav-item.nav-link.btn(href="/addSlice") + Add a Slice
+    block content
     script(src="https://code.jquery.com/jquery-3.1.1.slim.min.js", integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n", crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js", integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb", crossorigin="anonymous")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js", integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn", crossorigin="anonymous")

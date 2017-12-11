@@ -11,21 +11,21 @@ updateController.addSlice = function(req, res) {
 updateController.doAddSlice = function(req, res) {
   var newSlice = {
       title: req.body.title,
-      items: []
+      items: [],
+      index: req.user.matrix.length + 1
     }
-  req.user.matrix.push(newSlice);
-  console.log('update:', req.user);
 
-  User.findOneAndUpdate({username: req.user.username},
-                        {$set: {matrix: req.user.matrix} },
-                        {new: true},
+  req.user.matrix.push(newSlice);
+
+  User.findOneAndUpdate({ username: req.user.username },
+                        { $set: { matrix: req.user.matrix } },
+                        { new: true},
                         (err, user) => {
                           if(err) console.log('oops mongo error');
-                          console.log('user: ', user);
-                          console.log('matrix', user.matrix);
-                          res.render('index', {user: user});
-                        })
-
+                          res.render('index', { user: user });
+                        });
 };
+
+//will have to re-index after deletion (or re-order)
 
 module.exports = updateController;

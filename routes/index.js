@@ -4,7 +4,7 @@ var auth = require("../controllers/AuthController.js");
 var update = require("../controllers/UpdateController.js");
 var view = require("../controllers/ViewController.js");
 
-// restrict index for logged in user only	
+// restrict index for logged in user only
 router.get('/', auth.home);
 
 // route to register page
@@ -27,5 +27,8 @@ router.get('/addSlice', update.addSlice)
 
 // route for addSlice action
 router.post('/doAddSlice', update.doAddSlice)
+
+// route for viewing slice details
+router.get('/openslice/:index', view.openSlice)
 
 module.exports = router;

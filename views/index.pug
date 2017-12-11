@@ -1,17 +1,11 @@
 extends layout
 
 block content
-  div#main-content-wrapper
-    if (!user)
-      pre no user
-    if (user)
-      div#fn-btn-row.container-fuid
-        button#new-slice.btn
-          a(href="/addSlice") + Add a Slice
-      section#watermelon-container.container-fluid
-        ul#slices-container.container-fluid
-          each val in user.matrix
-            li.slice.container-fluid
-              div.btn.slice-title= val.title
-        pre= user
-        block content
+  if (user)
+    section#watermelon-container.container-fluid
+      ul#slices-container.container-fluid
+        each slice in user.matrix
+          li.slice.container-fluid(data-index=slice.index)
+            a.btn.slice-title(href="/openslice/" + slice.index)= slice.title
+    pre= user
+    block content
