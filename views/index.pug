@@ -10,4 +10,7 @@ block content
           a(href="/addSlice") + Add a Slice
       section#watermelon-container.container-fluid
         pre= user
+        ul
+          each val in user.matrix
+            li= val.title
         block content
