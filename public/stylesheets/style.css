@@ -24,17 +24,29 @@ a:visited {
   text-align: center;
 }
 
+#slices-container {
+  list-style-type: none;
+  background: #333;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+}
+
+.slice {
+  display: inline-block;
+}
+
+.slice-title {
+  font-family: 'Bungee', sans-serif;
+  color: white;
+}
+
 .btn {
   font-family: 'Bungee', sans-serif;
   cursor: pointer;
-  background: #66A182;
+  background: #fff;
   border: #333 3px solid;
-}
-
-.outlined-grn-btn {
-  font-family: 'Bungee', sans-serif;
-  color: #66A182;
-  border: #333 3px solid;
+  color: #333;
 }
 
 .form-signin {

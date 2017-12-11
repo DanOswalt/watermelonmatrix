@@ -6,11 +6,12 @@ block content
       pre no user
     if (user)
       div#fn-btn-row.container-fuid
-        button#new-slice.outlined-grn-btn
+        button#new-slice.btn
           a(href="/addSlice") + Add a Slice
       section#watermelon-container.container-fluid
-        pre= user
-        ul
+        ul#slices-container.container-fluid
           each val in user.matrix
-            li= val.title
+            li.slice.container-fluid
+              div.btn.slice-title= val.title
+        pre= user
         block content
