@@ -23,12 +23,18 @@ router.post('/login', auth.doLogin);
 router.get('/logout', auth.logout);
 
 // route for addSlice action
-router.get('/addSlice', update.addSlice)
+router.get('/addslice', update.addSlice)
 
-// route for addSlice action
-router.post('/doAddSlice', update.doAddSlice)
+// route for saving slice add
+router.post('/doaddslice', update.doAddSlice)
 
-// route for viewing slice details
-router.get('/openslice/:index', view.openSlice)
+// route for deleting slice
+router.get('/openslice/:sindex/deleteslice', update.deleteSlice)
+
+// route for going to add item form
+router.get('/openslice/:sindex/additem', update.addItem)
+
+// route for saving item add
+router.post('/openslice/:sindex/doadditem', update.doAddItem)
 
 module.exports = router;

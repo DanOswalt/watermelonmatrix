@@ -6,7 +6,7 @@ var ViewController = {};
 // Go to add slice view
 ViewController.openSlice = function(req, res) {
   var sliceIndex = req.params.index;
-  res.render('slice', { user : req.user, index : sliceIndex });
+  res.render('slice', { user : req.user, index : sliceIndex - 1});
 };
 
 module.exports = ViewController;

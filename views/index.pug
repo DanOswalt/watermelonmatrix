@@ -5,7 +5,19 @@ block content
     section#watermelon-container.container-fluid
       ul#slices-container.container-fluid
         each slice in user.matrix
-          li.slice.container-fluid(data-index=slice.index)
-            a.btn.slice-title(href="/openslice/" + slice.index)= slice.title
+          .slice.container-fluid
+            li(data-index=slice.index)
+              .slice-title-container
+                a.btn.slice-title(href="#itemMenu")= slice.title
+              .slice-option-menu
+                a.btn.slice-option(href="/openslice/" + slice.index + "/additem") + Add item
+                a.btn.slice-option(href="/openslice/" + slice.index + "/edittitle") * Edit Title
+                a.btn.slice-option(href="/openslice/" + slice.index + "/deleteslice") - Delete Slice
+              .slice-item-list
+                each item in user.matrix[slice.index - 1].items
+                  .item-box
+                    a.btn.slice-item(href="#")= item.name
+                  .item-option-menu
+                
     pre= user
     block content
