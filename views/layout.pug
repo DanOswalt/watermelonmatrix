@@ -8,19 +8,18 @@ html
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css", integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ", crossorigin="anonymous")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    nav.navbar.navbar-default
-      div.container-fluid
-        div.navbar-header
-          h1#title.navbar-brand Watermelon Matrix
-          ul#accountNav.nav.navbar-nav
-            if (!user)
-              a(href='/login').nav-item.nav-link.btn Login
-              a(href='/register').nav-item.nav-link.btn Register
-            if (user)
-              a(href="/").nav-item.nav-link.btn Hi #{user.username}
-              a(href='/logout').nav-item.nav-link.btn Logout
-              a#new-slice.nav-item.nav-link.btn(href="/addSlice") + Add a Slice
+    nav#accountNav.container-fluid
+      .btn-bar
+        if (!user)
+          a(href='/login').btn Login
+          a(href='/register').btn Register
+        if (user)
+          a(href="/").btn Hi #{user.username}
+          a(href='/logout').btn Logout
+          a#new-slicebtn(href="/addSlice").btn + Add a Slice
+      h1#title.navbar-brand Watermelon Matrix
     block content
     script(src="https://code.jquery.com/jquery-3.1.1.slim.min.js", integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n", crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js", integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb", crossorigin="anonymous")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js", integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn", crossorigin="anonymous")
+    script(src="js/events.js")

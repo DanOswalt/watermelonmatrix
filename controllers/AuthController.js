@@ -6,6 +6,7 @@ var authController = {};
 
 // Restrict access to root page
 authController.home = function(req, res) {
+  console.log(req.user || "no user session");
   res.render('index', { user : req.user });
 };
 

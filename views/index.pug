@@ -2,22 +2,23 @@ extends layout
 
 block content
   if (user)
-    section#watermelon-container.container-fluid
-      ul#slices-container.container-fluid
+    section#watermelon-container.container
+      ul#slices-container.container
         each slice in user.matrix
-          .slice.container-fluid
-            li(data-index=slice.index)
-              .slice-title-container
-                a.btn.slice-title(href="#itemMenu")= slice.title
-              .slice-option-menu
-                a.btn.slice-option(href="/openslice/" + slice.index + "/additem") + Add item
-                a.btn.slice-option(href="/openslice/" + slice.index + "/edittitle") * Edit Title
-                a.btn.slice-option(href="/openslice/" + slice.index + "/deleteslice") - Delete Slice
-              .slice-item-list
-                each item in user.matrix[slice.index - 1].items
-                  .item-box
-                    a.btn.slice-item(href="#")= item.name
+          li.slice.container(data-index=slice.index)
+            .btn.slice-title= slice.title
+            .slice-option-menu
+              a.btn.slice-option(href="/openslice/" + slice.index + "/additem") + Add item
+              a.btn.slice-option(href="/openslice/" + slice.index + "/edittitle") * Edit Title
+              a.btn.slice-option(href="/openslice/" + slice.index + "/deleteslice") - Delete Slice
+            .slice-item-list
+              each item in user.matrix[slice.index - 1].items
+                .item.containe(data-index=item.index)
+                  .btn.slice-item= item.name
                   .item-option-menu
-                
-    pre= user
+                    a.btn.item-option(href="#") << Reset
+                    a.btn.item-option(href="#") < Nudge
+                    a.btn.item-option(href="#") > Nudge
+                    a.btn.item-option(href="#") - Delete
+    //- pre= user
     block content
