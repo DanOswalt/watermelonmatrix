@@ -47,6 +47,7 @@ a:visited {
   width: 200px;
   vertical-align: top;
   position: relative;
+  margin: 0;
 }
 
 .slice-option-menu,
@@ -77,7 +78,7 @@ a:visited {
   border: #333 solid 3px;
 }
 
-.slice-item {
+.slice-item-title {
   font-family: 'Bungee', sans-serif;
   background: #66A182;
 }

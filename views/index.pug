@@ -14,7 +14,7 @@ block content
             .slice-item-list
               each item in user.matrix[slice.index - 1].items
                 .item.containe(data-index=item.index)
-                  .btn.slice-item= item.name
+                  .btn.slice-item-title= item.name
                   .item-option-menu
                     a.btn.item-option(href="#") << Reset
                     a.btn.item-option(href="#") < Nudge
