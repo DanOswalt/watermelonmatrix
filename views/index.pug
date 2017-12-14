@@ -8,22 +8,22 @@ block content
           li.slice.container-fluid(data-index=slice.index)
             .btn.slice-title= slice.title
             .slice-option-menu
-              a.btn.slice-option(href="/openslice/" + slice.index + "/additem")
-                span.fa.fa-plus-circle
-              a.btn.slice-option(href="/openslice/" + slice.index + "/edittitle")
+              a.btn.option.good-item(href="/openslice/" + slice.index + "/additem")
+                span.fa.fa-plus-circle.good-item
+              a.btn.option(href="/openslice/" + slice.index + "/edittitle")
                 span.fa.fa-pencil
-              a.btn.slice-option(href="/openslice/" + slice.index + "/deleteslice")
-                span.fa.fa-trash-o
+              a.btn.option.redzone-item(href="/openslice/" + slice.index + "/deleteslice")
+                span.fa.fa-trash
             .slice-item-list
               each item in user.matrix[slice.index - 1].items
                 .item(data-index=item.index)
                   .btn.slice-item-title(style="background:" + item.color)= item.name
                   .item-option-menu
-                    a.btn.item-option(href="#")
-                      span.fa.fa-refresh
-                    a.btn.item-option(href="#")
-                      span.fa.fa-pencil
-                    a.btn.item-option(href="/openslice/" + slice.index + "/item/" + item.index + "/dodeleteitem")
-                      span.fa.fa-trash-o
-                    .btn.item-info #{item.elapsed} / #{item.cycle}
+                    .option-container
+                      a.btn.option.good-item(href="#")
+                        span.fa.fa-refresh
+                      a.btn.option(href="#")
+                        span.fa.fa-pencil
+                      a.btn.option.redzone-item(href="/openslice/" + slice.index + "/item/" + item.index + "/dodeleteitem")
+                        span.fa.fa-trash
     block content
