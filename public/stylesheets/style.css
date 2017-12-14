@@ -27,12 +27,12 @@ a:visited {
 #title {
   font-family: 'Bungee', sans-serif;
   font-size: 5em;
-  color: #eee;
+  color: #66A182;
   text-shadow: 1px 1px 1px #000;
 }
 
 #watermelon-container {
-
+  margin-top: 2em;
 }
 
 #slices-container {
@@ -52,6 +52,7 @@ a:visited {
   text-align: center;
 }
 
+/*hide on open*/
 .slice-option-menu,
 .item-option-menu {
   display: none;
@@ -66,24 +67,28 @@ a:visited {
 .btn {
   font-family: 'Bungee', sans-serif;
   cursor: pointer;
-  background: #fff;
+  background: #eee;
   border: #333 3px solid;
-  color: #333;
+  color: #222;
   width: 180px;
 }
 
 .bar-btn {
-  border: #bbb solid 3px;
+  border: #333 solid 3px;
 }
 
 .submit-btn {
   width: 333px;
 }
 
+.action-btn {
+  background: #66A182;
+}
+
 .slice-title {
   font-family: 'Bungee', sans-serif;
   font-size: 2em;
-  color: #ffcccc;
+  color: #eee;
   background: transparent;
   border: none;
   padding: 2px;
@@ -91,19 +96,29 @@ a:visited {
 
 .slice-item-title {
   font-family: 'Bungee', sans-serif;
+  border: #111 3px solid;
 }
 
 .slice-option,
 .item-option {
-  background: #fff;
+  background: white;
   font-family: 'Barlow', sans-serif;
   font-weight: bolder;
-  border: 3px solid #555;
+  border: 1px solid #555;
+  color: #eee;
 }
 
 .item-info {
   background: #999;
+  color: white;
 }
+
+item-option a,
+item-option a:hover,
+item-option a:visited {
+  color: #eee !important;
+}
+
 
 
 /*form------------------------------*/

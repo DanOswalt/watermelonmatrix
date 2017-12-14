@@ -5,7 +5,8 @@ html
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
     link(href="https://fonts.googleapis.com/css?family=Barlow|Bungee", rel="stylesheet")
-    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css", integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ", crossorigin="anonymous")
+    link(rel="stylesheet", href="/stylesheets/bootstrap.min.css")
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     nav#accountNav.container-fluid
@@ -16,10 +17,9 @@ html
         if (user)
           a(href="/").btn.bar-btn Hi #{user.username}
           a(href='/logout').btn.bar-btn Logout
-          a#new-slicebtn(href="/addSlice").btn + Add a Slice
+          a#new-slicebtn(href="/addSlice").btn.action-btn + Add a Slice
       h1#title.navbar-brand Watermelon Matrix
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js", integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb", crossorigin="anonymous")
-    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js", integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn", crossorigin="anonymous")
     script(src="/js/events.js")
     block content
+      
