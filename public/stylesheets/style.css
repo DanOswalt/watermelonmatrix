@@ -1,5 +1,6 @@
 body {
-  background-color: #eee;
+  /*background-color: #eee;*/
+  background-image: url(../img/wood.jpg);
   padding: 20px;
   font-family: 'Barlow', sans-serif;
 }
@@ -26,6 +27,8 @@ a:visited {
 #title {
   font-family: 'Bungee', sans-serif;
   font-size: 5em;
+  color: #eee;
+  text-shadow: 1px 1px 1px #000;
 }
 
 #watermelon-container {
@@ -54,7 +57,6 @@ a:visited {
   display: none;
 }
 
-
 .item-box {
 
 }
@@ -80,14 +82,15 @@ a:visited {
 
 .slice-title {
   font-family: 'Bungee', sans-serif;
-  color: #ddd;
-  background: #555;
-  border: #333 solid 3px;
+  font-size: 2em;
+  color: #ffcccc;
+  background: transparent;
+  border: none;
+  padding: 2px;
 }
 
 .slice-item-title {
   font-family: 'Bungee', sans-serif;
-  background: #66A182;
 }
 
 .slice-option,
