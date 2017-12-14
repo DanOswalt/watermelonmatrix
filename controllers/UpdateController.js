@@ -6,17 +6,22 @@ var updateController = {};
 updateController.calcItemStatuses = function(req, res) {
   //for each slice, for each item
   req.user.matrix.forEach(function(slice) {
-    slice.forEach(function(item) {
+    slice.items.forEach(function(item) {
       var today = new Date();
-      today.setHours(0, 0, 0, 0);
+      var todayNum = today.setHours(0, 0, 0, 0);
+      console.log('today', todayNum);
+      console.log('redli', item.redlineDate);
+      console.log('deadl', item.deadlineDate);
 
-      if (today > item.deadline) {
-        item.status = 'overdue';
-      } else if (today > item.redline) {
-        item.status = 'redzone';
+      if (today >= item.deadlineDate) {
+        item.color = '#81171B';
+      } else if (today >= item.redlineDate) {
+        item.color = '#C75146';
       } else {
-        item.status = 'good';
+        item.color = '#66A182';
       }
+
+      console.log(item.color);
     })
   })
 }
@@ -33,7 +38,7 @@ updateController.saveUserUpdate = function(req, res) {
 
 // Go to add slice view
 updateController.addSlice = function(req, res) {
-  res.render('newslice');
+  res.render('newslice', { user : req.user });
 };
 
 updateController.doAddSlice = function(req, res) {
@@ -64,7 +69,7 @@ updateController.doAddItem = function(req, res) {
     index: slice.items.length + 1,
     cycle: req.body.cycle,
     redline: req.body.redline,
-    status: 'good'
+    color: '-'
   }
   newItem.deadlineDate = new Date(Date.now() + (1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * newItem.cycle)).setHours(0, 0, 0, 0);
   newItem.redlineDate = new Date(Date.now() + (1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * (newItem.cycle - newItem.redline))).setHours(0, 0, 0, 0);

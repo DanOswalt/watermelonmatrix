@@ -10,14 +10,16 @@ authController.home = function(req, res) {
   console.log(req.user || "no user session");
 
   //calculate the user's item statuses here
-  update.calcItemStatuses(req, res);
+  if(req.user) {
+    update.calcItemStatuses(req, res);
+  }
 
   res.render('index', { user : req.user });
 };
 
 // Go to registration page
 authController.register = function(req, res) {
-  res.render('register');
+  res.render('register', { user : req.user });
 };
 
 // Post registration
@@ -25,7 +27,7 @@ authController.doRegister = function(req, res) {
   User.register(new User({ username : req.body.username }), req.body.password, function(err, user) {
     if (err) {
       console.log('failed to register: ', err);
-      return res.render('register', { user : user });
+      return res.render('register', { user : req.user });
     }
 
     passport.authenticate('local')(req, res, function () {
@@ -36,7 +38,7 @@ authController.doRegister = function(req, res) {
 
 // Go to login page
 authController.login = function(req, res) {
-  res.render('login');
+  res.render('login', { user : req.user });
 };
 
 // Post login

@@ -6,7 +6,7 @@ body {
 
 /* red #C75146 */
 /* green #66A182 */
-/* dark-red 81171B */
+/* dark-red #81171B */
 
 a,
 a:hover,
@@ -34,7 +34,6 @@ a:visited {
 
 #slices-container {
   list-style-type: none;
-  background: #333;
   text-align: center;
   vertical-align: top;
   border-radius: 10px;
@@ -76,7 +75,7 @@ a:visited {
 }
 
 .submit-btn {
-  max-width: 100%;
+  width: 333px;
 }
 
 .slice-title {
@@ -141,4 +140,18 @@ a:visited {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+/*statuses-----------------------------*/
+
+.good-item {
+  background: #66A182;
+}
+
+.redzone-item {
+  background: #C75146;
+}
+
+.overdue-item {
+  background: #81171B;
 }
