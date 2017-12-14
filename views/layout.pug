@@ -11,11 +11,11 @@ html
     nav#accountNav.container-fluid
       .btn-bar
         if (!user)
-          a(href='/login').btn Login
-          a(href='/register').btn Register
+          a(href='/login').btn.bar-btn Login
+          a(href='/register').btn.bar-btn Register
         if (user)
-          a(href="/").btn.user-name Hi #{user.username}
-          a(href='/logout').btn Logout
+          a(href="/").btn.bar-btn Hi #{user.username}
+          a(href='/logout').btn.bar-btn Logout
           a#new-slicebtn(href="/addSlice").btn + Add a Slice
       h1#title.navbar-brand Watermelon Matrix
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")

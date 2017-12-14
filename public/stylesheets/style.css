@@ -1,8 +1,7 @@
 body {
   background-color: #eee;
-  padding: 50px;
+  padding: 20px;
   font-family: 'Barlow', sans-serif;
-  /*font-family: 'Bungee', cursive;*/
 }
 
 /* red #C75146 */
@@ -35,11 +34,10 @@ a:visited {
 
 #slices-container {
   list-style-type: none;
-  /*background: #333;*/
+  background: #333;
   text-align: center;
-  margin: 10px;
-  padding: 10px;
   vertical-align: top;
+  border-radius: 10px;
 }
 
 .slice {
@@ -48,6 +46,8 @@ a:visited {
   vertical-align: top;
   position: relative;
   margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 .slice-option-menu,
@@ -71,6 +71,14 @@ a:visited {
   width: 180px;
 }
 
+.bar-btn {
+  border: #bbb solid 3px;
+}
+
+.submit-btn {
+  max-width: 100%;
+}
+
 .slice-title {
   font-family: 'Bungee', sans-serif;
   color: #ddd;
@@ -85,12 +93,15 @@ a:visited {
 
 .slice-option,
 .item-option {
-  background: #999;
+  background: #fff;
   font-family: 'Barlow', sans-serif;
   font-weight: bolder;
   border: 3px solid #555;
 }
 
+.item-info {
+  background: #999;
+}
 
 
 /*form------------------------------*/

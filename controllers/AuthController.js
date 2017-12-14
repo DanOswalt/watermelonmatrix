@@ -1,12 +1,17 @@
 var mongoose = require("mongoose");
 var passport = require("passport");
 var User = require("../models/user");
+var update = require("./UpdateController.js");
 
 var authController = {};
 
 // Restrict access to root page
 authController.home = function(req, res) {
   console.log(req.user || "no user session");
+
+  //calculate the user's item statuses here
+  update.calcItemStatuses(req, res);
+
   res.render('index', { user : req.user });
 };
 

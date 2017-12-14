@@ -37,4 +37,7 @@ router.get('/openslice/:sindex/additem', update.addItem)
 // route for saving item add
 router.post('/openslice/:sindex/doadditem', update.doAddItem)
 
+// route for deleting an item
+router.get('/openslice/:sindex/item/:iindex/dodeleteitem', update.doDeleteItem)
+
 module.exports = router;
