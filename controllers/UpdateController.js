@@ -22,7 +22,7 @@ updateController.calcItemStatuses = function(req, res) {
 }
 
 updateController.saveUserUpdate = function(req, res) {
-  User.findOneAndUpdate({ username: req.user.username.toUpperCase() },
+  User.findOneAndUpdate({ username: req.user.username },
                         { $set: { matrix: req.user.matrix } },
                         { new: true},
                         (err, user) => {
@@ -87,12 +87,33 @@ updateController.addItem = function(req, res) {
   res.render('newitem', {user: req.user, sindex: sindex});
 };
 
-// Go to delete item view
+// Execute delete item
 updateController.doDeleteItem = function(req, res) {
   var itemIndex = req.params.iindex;
   var sliceIndex = req.params.sindex;
   req.user.matrix[sliceIndex - 1].items.splice(itemIndex - 1, 1);
   updateController.reIndexItems(sliceIndex, req, res);
+  updateController.saveUserUpdate(req, res);
+};
+
+// Go to add item edit view
+updateController.editItem = function(req, res) {
+  var itemIndex = req.params.iindex;
+  var sliceIndex = req.params.sindex;
+  var item = req.user.matrix[sliceIndex - 1].items[itemIndex - 1];
+  console.log('edit item');
+  res.render('edititem', {user: req.user, item: item});
+};
+
+// Execute reset item
+updateController.doResetItem = function(req, res) {
+  var itemIndex = req.params.iindex;
+  var sliceIndex = req.params.sindex;
+  var item = req.user.matrix[sliceIndex - 1].items[itemIndex - 1];
+  newItem.deadlineDate = new Date(Date.now() + (1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * newItem.cycle)).setHours(0, 0, 0, 0);
+  newItem.redlineDate = new Date(Date.now() + (1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * (newItem.cycle - newItem.redline))).setHours(0, 0, 0, 0);
+  console.log('reset item');
+  console.log(user);
   updateController.saveUserUpdate(req, res);
 };
 
@@ -107,5 +128,6 @@ updateController.reIndexItems = function(sliceIndex, req, res) {
     item.index = index + 1;
   });
 }
+
 
 module.exports = updateController;
