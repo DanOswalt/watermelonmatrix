@@ -9,9 +9,6 @@ updateController.calcItemStatuses = function(req, res) {
     slice.items.forEach(function(item) {
       var today = new Date();
       var todayNum = today.setHours(0, 0, 0, 0);
-      console.log('today', todayNum);
-      console.log('redli', item.redlineDate);
-      console.log('deadl', item.deadlineDate);
 
       if (today >= item.deadlineDate) {
         item.color = '#81171B';
@@ -20,14 +17,12 @@ updateController.calcItemStatuses = function(req, res) {
       } else {
         item.color = '#66A182';
       }
-
-      console.log(item.color);
     })
   })
 }
 
 updateController.saveUserUpdate = function(req, res) {
-  User.findOneAndUpdate({ username: req.user.username },
+  User.findOneAndUpdate({ username: req.user.username.toUpperCase() },
                         { $set: { matrix: req.user.matrix } },
                         { new: true},
                         (err, user) => {
@@ -89,7 +84,7 @@ updateController.calcDaysForItem = function(item) {
 // Go to add item view
 updateController.addItem = function(req, res) {
   var sindex = req.params.sindex;
-  res.render('newitem', {sindex: sindex});
+  res.render('newitem', {user: req.user, sindex: sindex});
 };
 
 // Go to delete item view

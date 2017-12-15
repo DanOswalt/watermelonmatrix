@@ -2,7 +2,7 @@ extends layout
 
 block content
   .form-box
-    form.form(role='form', action="/doaddslice", method="post")
+    form.form(role='form', action="/doaddslice", method="post", style='max-width: 200px;')
       input.btn.form-input(type='text', name="title", placeholder='Slice Name', autofocus)
       button.btn.good-item(type='submit') + Add It
       a.btn.redzone-item(href='/') Nevermind

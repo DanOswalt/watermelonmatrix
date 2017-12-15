@@ -2,7 +2,7 @@ extends layout
 
 block content
   .form-box
-    form.form(role='form', action="/register",method="post")
+    form.form(role='form', action="/register",method="post", style='max-width: 200px;')
       input.btn.form-input(type='text', name="username", placeholder='Your Username' autofocus)
       input.btn.form-input(type='password', name="password", placeholder='Your Password')
       button.btn.good-item(type='submit') Sign Up

@@ -83,10 +83,6 @@ a:visited {
   overflow: hidden;
 }
 
-.bar-btn {
-  border: #111 solid 3px;
-}
-
 .submit-btn {
   width: 333px;
 }
@@ -104,6 +100,10 @@ a:visited {
   padding: 2px;
 }
 
+.bar-btn {
+  background: #eee;
+}
+
 .slice-item-title {
   font-family: 'Bungee', sans-serif;
   border: #111 3px solid;
@@ -119,6 +119,13 @@ a:visited {
   border-radius: 5px;;
 }
 
+/*----form---------------*/
+
+label {
+  font-family: 'Barlow', sans-serif;
+  color: #66A182;
+}
+
 .form-box {
   text-align: center;
 }
@@ -129,12 +136,13 @@ a:visited {
 
 .form-input {
   color: #eee;
-  font-size: 1.2em !important;
+  font-size: 1.2em;
   background: transparent;
-  border: none;
+  border: dashed 3px #66A182;
   border-radius: none;
-  border-bottom: 3px #eee solid;
 }
+
+
 
 /*statuses-----------------------------*/
 

@@ -3,11 +3,11 @@ $( document ).ready(function() {
 
     $('.slice-title').on('click', function(e) {
       // console.log($(e.target).parent().attr('data-index'));
-      $(e.target).next().slideToggle(200);
+      $(e.target).next().toggle();
     });
 
     $('.slice-item-title').on('click', function(e) {
-      $(e.target).next().slideToggle(200);
+      $(e.target).next().toggle();
     })
 
 });

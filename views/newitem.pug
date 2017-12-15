@@ -3,8 +3,11 @@ extends layout
 block content
   .form-box
     form.form(role='form', action="/openslice/" + sindex + "/doadditem", method="post", style='max-width: 200px;')
-      input.btn.form-input(type='text', name="name", placeholder='Name' autofocus)
-      input.btn.form-input(type='text', name="cycle", placeholder='# Days (7)')
-      input.btn.form-input(type='text', name="redline", placeholder='Red Day (2)')
+      label(for="itemName") Item Name
+        input.btn.form-input(id="itemName", type='text', name="name", value='' autofocus)
+      label(for="cycle") Cycle this many days
+        input.btn.form-input(id="cycle", type='number', name="cycle", value='7')
+      label(for="redDay") Turn red this many days out
+        input.btn.form-input(id="redDay", type='number', name="redline", value='2')
       button.btn.good-item(type='submit') + Add It
       a.btn.redzone-item(href='/') Nevermind
