@@ -1,8 +1,8 @@
 body {
-  /*background-color: #eee;*/
   background-image: url(../img/wood.jpg);
   padding: 20px;
   font-family: 'Barlow', sans-serif;
+  background-attachment: fixed;
 }
 
 /* red #C75146 */
@@ -12,7 +12,7 @@ body {
 a,
 a:hover,
 a:visited {
-  color: #333;
+  color: #111;
 }
 
 #accountNav {
@@ -77,14 +77,14 @@ a:visited {
   font-family: 'Bungee', sans-serif;
   cursor: pointer;
   background: #eee;
-  border: #333 3px solid;
-  color: #333;
+  border: #111 3px solid;
+  color: #111;
   width: 180px;
   overflow: hidden;
 }
 
 .bar-btn {
-  border: #333 solid 3px;
+  border: #111 solid 3px;
 }
 
 .submit-btn {
@@ -111,53 +111,29 @@ a:visited {
 
 .option {
   background: white;
-  font-family: 'Barlow', sans-serif;
   font-weight: bolder;
-  border: 3px solid #333;
-  color: #333;
-  width: 40px;
+  border: 3px solid #111;
+  color: #111;
+  width: 60px;
   height: 40px;
   border-radius: 5px;;
 }
 
+.form-box {
+  text-align: center;
+}
 
-/*form------------------------------*/
-
-.form-signin {
-  max-width: 330px;
-  padding: 15px;
+.form {
   margin: 0 auto;
 }
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-  margin-bottom: 10px;
-}
-.form-signin .checkbox {
-  font-weight: normal;
-}
-.form-signin .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
-  border: #333 3px solid;
-  font-family: 'Barlow', sans-serif;
-}
-.form-signin .form-control:focus {
-  z-index: 2;
-}
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+
+.form-input {
+  color: #eee;
+  font-size: 1.2em !important;
+  background: transparent;
+  border: none;
+  border-radius: none;
+  border-bottom: 3px #eee solid;
 }
 
 /*statuses-----------------------------*/

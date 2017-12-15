@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  .container
-    form.form-signin(role='form', action="/openslice/" + sindex + "/doadditem", method="post", style='max-width: 300px;')
-      input.form-control(type='text', name="name", placeholder='Item Name')
-      input.form-control(type='text', name="cycle", placeholder='Cycle every this many days')
-      input.form-control(type='text', name="redline", placeholder='Turn red this many days before end')
-      input.form-control(type='text', name="startingcount", placeholder='Start with this many days left')
-      button.btn.form-control(type='submit') Make New Item
+  .form-box
+    form.form(role='form', action="/openslice/" + sindex + "/doadditem", method="post", style='max-width: 200px;')
+      input.btn.form-input(type='text', name="name", placeholder='Name' autofocus)
+      input.btn.form-input(type='text', name="cycle", placeholder='# Days (7)')
+      input.btn.form-input(type='text', name="redline", placeholder='Red Day (2)')
+      button.btn.good-item(type='submit') + Add It
+      a.btn.redzone-item(href='/') Nevermind
