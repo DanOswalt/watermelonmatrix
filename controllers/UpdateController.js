@@ -110,10 +110,10 @@ updateController.doResetItem = function(req, res) {
   var itemIndex = req.params.iindex;
   var sliceIndex = req.params.sindex;
   var item = req.user.matrix[sliceIndex - 1].items[itemIndex - 1];
-  newItem.deadlineDate = new Date(Date.now() + (1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * newItem.cycle)).setHours(0, 0, 0, 0);
-  newItem.redlineDate = new Date(Date.now() + (1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * (newItem.cycle - newItem.redline))).setHours(0, 0, 0, 0);
+  item.deadlineDate = new Date(Date.now() + (1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * item.cycle)).setHours(0, 0, 0, 0);
+  item.redlineDate = new Date(Date.now() + (1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * (item.cycle - item.redline))).setHours(0, 0, 0, 0);
   console.log('reset item');
-  console.log(user);
+  console.log(req.user);
   updateController.saveUserUpdate(req, res);
 };
 
