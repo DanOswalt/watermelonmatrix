@@ -24,12 +24,17 @@ a:visited {
   display: inline-block;
 }
 
+#title-container {
+  text-align: center;
+}
+
 #title {
   font-family: 'Bungee', sans-serif;
   font-size: 5em;
   color: #66A182;
   text-shadow: 1px 1px 1px #000;
   font-size: 4em;
+  margin: 0 auto;
   margin-bottom: 50px;
 }
 
@@ -162,7 +167,12 @@ label {
 
 @media (max-width: 800px) {
   #title {
-    font-size: 1.8em;
+    font-size: 1.5em;
+  }
+
+  .bar-btn {
+    width: 100px;
+    font-size: 0.8em;
   }
 
 }
