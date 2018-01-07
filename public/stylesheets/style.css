@@ -16,12 +16,17 @@ a:visited {
 }
 
 #accountNav {
-  text-align: center;
+  text-align: left;
+  display: block;
+  background: #eee;
+  border: #111 3px solid;
 }
 
-.nav-item,
-.nav-link {
+.bar {
   display: inline-block;
+  margin-right: 5px;
+  padding: 4px;
+  font-weight: bold;
 }
 
 #title-container {
@@ -76,6 +81,11 @@ a:visited {
   font-size: 1.2em;
   font-weight: bold;
   opacity: 0.7;
+}
+
+.fa-sign-out {
+  font-weight: normal;
+  padding-top: 5px;
 }
 
 /*btns--------------------------------------------*/
@@ -168,11 +178,6 @@ label {
 @media (max-width: 800px) {
   #title {
     font-size: 1.5em;
-  }
-
-  .bar-btn {
-    width: 100px;
-    font-size: 0.8em;
   }
 
 }

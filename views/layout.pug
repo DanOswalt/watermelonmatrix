@@ -9,17 +9,17 @@ html
     link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    nav#accountNav.container-fluid
+    nav#accountNav.container
       .btn-bar
         if (!user)
-          a(href='/login').btn.bar-btn Login
-          a(href='/register').btn.bar-btn Register
+          a(href='/login').bar LOGIN
+          a(href='/register').bar REGISTER
         if (user)
-          a(href="/").btn.bar-btn Hi #{user.username}
-          a(href='/logout').btn.bar-btn Logout
-          a#new-slicebtn(href="/addSlice").btn.action-btn + Add a Slice
-        #title-container.container
-          h1#title.navbar-brand Watermelon Matrix
+          a(href='/')#hello.bar HI #{user.username.toUpperCase()}!
+          a(href='/logout').bar.fa.fa-sign-out
+          a#new-slicebtn.bar.pull-right(href="/addSlice") + ADD SLICE
+    #title-container.container
+      h1#title.navbar-brand Watermelon Matrix
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
     script(src="/js/events.js")
     block content
