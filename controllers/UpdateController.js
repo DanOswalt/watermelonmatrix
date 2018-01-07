@@ -4,19 +4,32 @@ var User = require("../models/user");
 var updateController = {};
 
 updateController.calcItemStatuses = function(req, res) {
+
+  //this runs everytime
+
   //for each slice, for each item
   req.user.matrix.forEach(function(slice) {
     slice.items.forEach(function(item) {
       var today = new Date();
       var todayNum = today.setHours(0, 0, 0, 0);
 
-      if (today >= item.deadlineDate) {
+      item.daysLeft = (item.deadlineDate - today) / 86400000;
+      console.log(item.name);
+      console.log('deadlineDate:', item.deadlineDate);
+      console.log('redlineDate:', item.redlineDate);
+      console.log('today:', today);
+      console.log('todayNum', todayNum);
+
+      if (todayNum >= item.deadlineDate) {
         item.color = '#81171B';
-      } else if (today >= item.redlineDate) {
+      } else if (todayNum >= item.redlineDate) {
         item.color = '#C75146';
       } else {
         item.color = '#66A182';
       }
+
+      console.log('item.daysLeft:', `${item.name} ${item.daysLeft}`);
+
     })
   })
 }
@@ -31,7 +44,6 @@ updateController.saveUserUpdate = function(req, res) {
                         });
 };
 
-// Go to add slice view
 updateController.addSlice = function(req, res) {
   res.render('newslice', { user : req.user });
 };
@@ -54,7 +66,6 @@ updateController.deleteSlice = function(req, res) {
   updateController.saveUserUpdate(req, res);
 };
 
-// Go to add item view
 updateController.doAddItem = function(req, res) {
   //validation first?
   var sliceIndex = req.params.sindex;
@@ -64,30 +75,21 @@ updateController.doAddItem = function(req, res) {
     index: slice.items.length + 1,
     cycle: req.body.cycle,
     redline: req.body.redline,
-    color: '-'
+    color: '-',
+    daysLeft: req.body.cycle
   }
   newItem.deadlineDate = new Date(Date.now() + (1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * newItem.cycle)).setHours(0, 0, 0, 0);
   newItem.redlineDate = new Date(Date.now() + (1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * (newItem.cycle - newItem.redline))).setHours(0, 0, 0, 0);
-
-  console.log(newItem.deadlineDate);
-  console.log(newItem.redlineDate);
 
   slice.items.push(newItem);
   updateController.saveUserUpdate(req, res);
 };
 
-updateController.calcDaysForItem = function(item) {
-  var today = new Date();
-  return item;
-}
-
-// Go to add item view
 updateController.addItem = function(req, res) {
   var sindex = req.params.sindex;
   res.render('newitem', {user: req.user, sindex: sindex});
 };
 
-// Execute delete item
 updateController.doDeleteItem = function(req, res) {
   var itemIndex = req.params.iindex;
   var sliceIndex = req.params.sindex;
@@ -96,16 +98,39 @@ updateController.doDeleteItem = function(req, res) {
   updateController.saveUserUpdate(req, res);
 };
 
-// Go to add item edit view
 updateController.editItem = function(req, res) {
   var itemIndex = req.params.iindex;
   var sliceIndex = req.params.sindex;
   var item = req.user.matrix[sliceIndex - 1].items[itemIndex - 1];
   console.log('edit item');
-  res.render('edititem', {user: req.user, item: item});
+  res.render('edititem', {user: req.user, iindex: itemIndex, sindex: sliceIndex, item: item});
 };
 
-// Execute reset item
+updateController.doEditItem = function(req, res) {
+  //validation first?
+  var sliceIndex = req.params.sindex;
+  var slice = req.user.matrix[sliceIndex - 1];
+  var itemIndex = req.params.iindex;
+
+  var updatedItem = {
+    name: req.body.name,
+    index: itemIndex,
+    cycle: req.body.cycle,
+    redline: req.body.redline,
+    color: '-',
+    daysLeft: req.body.newDaysLeft
+  }
+
+  updatedItem.deadlineDate = new Date(Date.now() + (1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * updatedItem.daysLeft)).setHours(0, 0, 0, 0);
+  updatedItem.redlineDate = new Date(Date.now() + (1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * (updatedItem.daysLeft - updatedItem.redline))).setHours(0, 0, 0, 0);
+
+  console.log('old item', slice.items[itemIndex - 1]);
+  slice.items[itemIndex - 1] = updatedItem;
+  console.log('editted item', updatedItem);
+
+  updateController.saveUserUpdate(req, res);
+};
+
 updateController.doResetItem = function(req, res) {
   var itemIndex = req.params.iindex;
   var sliceIndex = req.params.sindex;
