@@ -28,6 +28,12 @@ router.get('/addslice', update.addSlice)
 // route for saving slice add
 router.post('/doaddslice', update.doAddSlice)
 
+// route for addSlice action
+router.get('/openslice/:sindex/editslice', update.editSlice)
+
+// route for saving slice add
+router.post('/openslice/:sindex/doeditslice', update.doEditSlice)
+
 // route for deleting slice
 router.get('/openslice/:sindex/deleteslice', update.deleteSlice)
 

@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  .form-box
+    form.form(role='form', action="/openslice/" + sindex + "/doeditslice", method="post", style='max-width: 200px;')
+      input.btn.form-input(type='text', name="title", placeholder='Slice Name', value= title autofocus)
+      button.btn.good-item(type='submit') + Update It
+      a.btn.redzone-item(href='/') Nevermind

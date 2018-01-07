@@ -59,6 +59,21 @@ updateController.doAddSlice = function(req, res) {
   updateController.saveUserUpdate(req, res);
 };
 
+updateController.editSlice = function(req, res) {
+  var sliceIndex = req.params.sindex;
+  var title = req.user.matrix[sliceIndex - 1].title;
+  console.log('edit slice');
+  res.render('editslice', {user: req.user, sindex: sliceIndex, title: title})
+}
+
+updateController.doEditSlice = function(req, res) {
+  var sliceIndex = req.params.sindex;
+  var newTitle = req.body.title;
+  req.user.matrix[sliceIndex - 1].title = newTitle;
+
+  updateController.saveUserUpdate(req, res);
+}
+
 updateController.deleteSlice = function(req, res) {
   var sliceIndex = req.params.sindex;
   req.user.matrix.splice(sliceIndex - 1, 1);
