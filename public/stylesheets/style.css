@@ -13,6 +13,7 @@ a,
 a:hover,
 a:visited {
   color: #111;
+  text-decoration: none;
 }
 
 #accountNav {
@@ -27,6 +28,11 @@ a:visited {
   margin-right: 5px;
   padding: 4px;
   font-weight: bold;
+}
+
+.addsliceicon {
+  margin-left: 5px;
+  margin-top: -3px;
 }
 
 #title-container {

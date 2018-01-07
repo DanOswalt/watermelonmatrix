@@ -17,7 +17,8 @@ html
         if (user)
           a(href='/')#hello.bar HI #{user.username.toUpperCase()}!
           a(href='/logout').bar.fa.fa-sign-out
-          a#new-slicebtn.bar.pull-right(href="/addSlice") + ADD SLICE
+          a#new-slicebtn.bar.pull-right(href="/addSlice") +
+            img.addsliceicon(src='/img/wmlogo.svg')
     #title-container.container
       h1#title.navbar-brand Watermelon Matrix
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
