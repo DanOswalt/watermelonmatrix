@@ -14,13 +14,10 @@ updateController.calcItemStatuses = function(req, res) {
       var todayNum = today.setHours(0, 0, 0, 0);
 
       item.daysLeft = (item.deadlineDate - today) / 86400000;
-      console.log(item.name);
-      console.log('deadlineDate:', item.deadlineDate);
-      console.log('redlineDate:', item.redlineDate);
-      console.log('today:', today);
-      console.log('todayNum', todayNum);
 
-      if (todayNum >= item.deadlineDate) {
+      if(item.cycle == item.daysLeft + 1) {
+        item.color = '#254f41';
+      } else if (todayNum >= item.deadlineDate) {
         item.color = '#81171B';
       } else if (todayNum >= item.redlineDate) {
         item.color = '#C75146';
@@ -28,7 +25,19 @@ updateController.calcItemStatuses = function(req, res) {
         item.color = '#66A182';
       }
 
-      console.log('item.daysLeft:', `${item.name} ${item.daysLeft}`);
+      console.log(item.name);
+      console.log("cycle", item.cycle);
+      console.log('daysLeft:', item.daysLeft);
+      console.log('deadline:', item.deadline);
+      console.log('redlineDate:', item.redlineDate);
+      console.log('deadlineDate:', item.deadlineDate);
+      console.log('today', today);
+      console.log('todayNum', todayNum);
+      console.log(item);
+
+
+
+
 
     })
   })

@@ -6,8 +6,9 @@ body {
 }
 
 /* red #C75146 */
-/* green #66A182 */
 /* dark-red #81171B */
+/* green #66A182 */
+/* dark-green #254f41*/
 
 a,
 a:hover,
@@ -19,8 +20,9 @@ a:visited {
 #accountNav {
   text-align: left;
   display: block;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.3);
   border: #111 3px solid;
+  padding: 4px 5px;
 }
 
 .bar {
