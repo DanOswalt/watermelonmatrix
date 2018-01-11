@@ -14,8 +14,9 @@ updateController.calcItemStatuses = function(req, res) {
       var todayNum = today.setHours(0, 0, 0, 0);
 
       item.daysLeft = (item.deadlineDate - today) / 86400000;
+      item.cycle *= 1;
 
-      if(item.cycle == item.daysLeft + 1) {
+      if(item.daysLeft >= parseInt(item.cycle)) {
         item.color = '#254f41';
       } else if (todayNum >= item.deadlineDate) {
         item.color = '#81171B';
@@ -25,22 +26,13 @@ updateController.calcItemStatuses = function(req, res) {
         item.color = '#66A182';
       }
 
-      console.log(item.name);
-      console.log("cycle", item.cycle);
-      console.log('daysLeft:', item.daysLeft);
-      console.log('deadline:', item.deadline);
-      console.log('redlineDate:', item.redlineDate);
-      console.log('deadlineDate:', item.deadlineDate);
       console.log('today', today);
       console.log('todayNum', todayNum);
       console.log(item);
-
-
-
-
-
     })
   })
+
+  updateController.saveUserUpdate(req, res);
 }
 
 updateController.saveUserUpdate = function(req, res) {
@@ -49,7 +41,11 @@ updateController.saveUserUpdate = function(req, res) {
                         { new: true},
                         (err, user) => {
                           if(err) console.log('oops mongo error');
-                          res.redirect('/');
+
+                          //if not already at homepage (this calcs on load after login, so no redirect)
+                          if(req.path != '/') {
+                            res.redirect('/');
+                          }
                         });
 };
 

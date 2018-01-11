@@ -20,6 +20,7 @@ block content
                   .btn.slice-item-title(style="background:" + item.color)= item.name
                   .item-option-menu
                     .option-container
+                      .btn.option.options-stat= item.daysLeft + "/" + item.cycle
                       a.btn.option.good-item(href="/openslice/" + slice.index + "/item/" + item.index + "/doresetitem")
                         span.fa.fa-refresh
                       a.btn.option(href="/openslice/" + slice.index + "/item/" + item.index + "/edititem")
